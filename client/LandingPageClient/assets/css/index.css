@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;1,100;1,200;1,400;1,500;1,900&display=swap');
+
+.hero-img img{
+    border-radius: 10px;
+}
+.feature-section .single-feature .icon {
+    color:#157e7e;
+}
+
+.about-img img:nth-child(1) , .about-img-2 img:nth-child(1){
+    border-radius: 10px;
+}
+
+.border-btn{
+    color   :#157e7e !important;
+    border: 1px solid #157e7e !important    ;
+}
+
+.border-btn-2{
+    color   :#f0f0f0 !important;
+    border: 1px solid #f0f0f0 !important    ;
+    background:transparent !important;
+}
+
+body,#home,#about{
+    font-family: montserrat !important;
+}
+
+#fixed-navbar{
+    width:100%;
+    position: fixed;
+    display:flex;
+    justify-content:space-between;
+    left:0;
+    top:0;
+    font-family: montserrat;
+    font-weight: 900;
+    padding:15px;
+    background: #157e7e;
+    font-size:24px;
+    color:#f0f0f0;
+    z-index: 2;
+}
+#fixed-navbar div:nth-child(1){
+    padding: 10px;
+}
+.button-main{
+    padding:10px;
+    margin:0px 20px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid #f0f0f0;
+    color:#f0f0f0;
+}
+.button-main a{
+    text-decoration: none;
+    color:#f0f0f0;
+}
+a:hover{
+    color:#9cd8f0 !important;
+}
+
+.button-main:hover{
+    border: 1px solid #9cd8f0 ;
+
+}

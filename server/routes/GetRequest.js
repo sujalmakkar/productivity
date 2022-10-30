@@ -306,7 +306,7 @@ Router.get('/profile',auth,async(req,res)=>{
             res.json({username:username})
         }
     }else{
-        res.json({message:'no user logged In'})
+        res.json({message:'no user logged In',status:302})
     }
 })
 

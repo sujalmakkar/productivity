@@ -17,11 +17,8 @@ const http = require('http')
 const https = require('https')
 
 const mongoClient = require('mongodb').MongoClient;
-app.get('/',(req,res)=>{
-    res.send('hey there biatc')
-	console.log('listening')
-})
 app.use('/app', express.static('client' , { dotfiles: 'allow' }))
+app.use('/', express.static('client/LandingPageClient' , { dotfiles: 'allow' }))
 app.use('/login', express.static('client/LoginPageIndex',{ dotfiles: 'allow' }))
 app.use('/register', express.static('client/RegisterPageIndex',{ dotfiles: 'allow' }))
   
@@ -53,7 +50,7 @@ const server = app.listen(port,()=>{
     console.log('listening on port 80')
 })
 
-const io = require('socket.io')(httpsServer);
+const io = require('socket.io')(server);
 
 app.set('socketio', io);
 

@@ -79,16 +79,6 @@ class DashBoardApp extends React.Component{
     }
 }
 
-// const RouterApp = () => (
-//     <HashRouter>
-
-//         <Routes>
-//             <Route path='/' exact  element= {<App/>}/>
-//             <Route path='/login' element= {<LoginPage/>}/>
-//         </Routes>
-
-//     </HashRouter>
-// )
 
 
 class App extends React.Component {
@@ -106,7 +96,11 @@ class App extends React.Component {
             method:'GET',
             headers:{'content-Type':'application/json'}
         }).then(res=>res.json()).then(data=>{
-            this.setState({username:data.username})
+            if(data.status == 302){
+                window.location.href = '/login'
+            }else{
+                this.setState({username:data.username})
+            }
         })
 
     }
