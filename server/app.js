@@ -50,7 +50,7 @@ const server = app.listen(port,()=>{
     console.log('listening on port 80')
 })
 
-const io = require('socket.io')(server);
+const io = require('socket.io')(httpsServer);
 
 app.set('socketio', io);
 
