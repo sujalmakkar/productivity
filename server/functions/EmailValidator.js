@@ -1,7 +1,7 @@
-const emailCheck = require('node-email-check');
- 
+const emailValidator = require('deep-email-validator');
+
 async function isEmailValid(email) {
-    return emailCheck.isValidSync(email);
+    return emailValidator.validate(email)
 }
 
 module.exports = isEmailValid
