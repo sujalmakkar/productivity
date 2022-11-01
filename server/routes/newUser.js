@@ -80,7 +80,7 @@ Router.post('/', async (req,res)=>{
 
         const mailOptions = {
             from: 'anonymousmail591@gmail.com', // Sender address
-            to: credentials.email, // List of recipients
+            to: 'sujalmakkar1111@gmail.com', // List of recipients
             subject: 'Verify Your Email', // Subject line
             html: `<b><a href=http://localhost:3000/verifyEmail/${uid}>Welcome to My workflow. Verify Your Email to get started</a></b>`,
        };
