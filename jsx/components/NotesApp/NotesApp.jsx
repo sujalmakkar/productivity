@@ -85,7 +85,9 @@ class NotesApp extends React.Component {
         })
     }
     noteId(e){
-        this.setState({currentNoteId:e})
+        if(this.state.currentNoteId==0){
+            this.setState({currentNoteId:e})
+        }
     }
     handlecloseeditor(e){
         this.setState({currentNoteId:0})

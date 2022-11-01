@@ -956,14 +956,13 @@ button{
 #NotesApp  .note{
     display: none;
     opacity: 0;
-    width:80%;
+    width:95%;
     position: absolute;
-    left:10%;
-    top:10%;
-    /* bottom:10%; */
-    max-height: 80vh;
-    right:10%;
-    height:auto;
+    left:2.5%;
+    top:2.5%;
+    height: 95vh;
+    right:2.5%;
+    /* height:auto; */
     overflow-y:scroll;
     pointer-events: none;
     background:#cce6eb;
@@ -981,6 +980,9 @@ button{
 #NotesApp  .flex button{
     border-radius: 8px;
     padding:10px 20px;
+}
+.note img{
+    max-width:90%;
 }
 #NotesApp  .note .note-text-container{
     padding:10px;
@@ -1012,7 +1014,7 @@ button{
 
 .note .note-contents-container{
     padding:10px;
-    max-height: 65vh;
+    height: 80vh;
     overflow: scroll;
 }
 
@@ -1066,11 +1068,11 @@ button{
 }
 @keyframes popup{
     0%{
-        top:20%;
+        top:10%;
         opacity: 0;
     }
     100%{
-        top:10%;
+        top:2.5%;
         opacity: 1;
     }
 }
