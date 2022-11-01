@@ -34,7 +34,9 @@ mongoClient.connect(url=process.env.DB).then(client=>{
 Router.post('/', async (req,res)=>{
     var credentials = req.body
 
+    console.log(credentials)
     const {valid, reason, validators} = await emailValidator(credentials.email);
+    console.log(valid)
 
     if (valid){
         if(credentials.password === credentials.passwordagain){
