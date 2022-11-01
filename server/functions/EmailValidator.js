@@ -1,7 +1,7 @@
-var validator = require("email-validator");
+const emailCheck = require('node-email-check');
  
 async function isEmailValid(email) {
-    return validator.validate(email);
+    return emailCheck.isValidSync(email);
 }
 
 module.exports = isEmailValid
