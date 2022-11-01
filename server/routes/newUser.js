@@ -16,7 +16,6 @@ let transport = nodemailer.createTransport({
     }
  });
 
- console.log('fuckin hell')
 
 const emailValidator = require('../functions/EmailValidator.js')
 
