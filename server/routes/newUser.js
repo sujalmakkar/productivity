@@ -4,6 +4,7 @@ const USER = require('../modal/schema')
 const mongoClient = require('mongodb').MongoClient;
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const emailCheck = require('node-email-check');
 // const nodemailer = require('nodemailer')
 
 // let transport = nodemailer.createTransport({
@@ -17,7 +18,7 @@ const jwt = require('jsonwebtoken')
 //  });
 
 
-const emailValidator = require('../functions/EmailValidator.js')
+// const emailValidator = require('../functions/EmailValidator.js')
 
 const randomNumber = require('../functions/randomNumber.js')
 require('dotenv').config()
@@ -35,7 +36,7 @@ Router.post('/', async (req,res)=>{
     var credentials = req.body
 
     console.log(credentials)
-    const {valid, reason, validators} = await emailValidator(credentials.email);
+    const {valid, reason, validators} = await emailCheck.isValidSync(credentials.email);
     console.log(valid)
 
     if (valid){
