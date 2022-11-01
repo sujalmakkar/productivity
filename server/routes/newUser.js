@@ -4,18 +4,18 @@ const USER = require('../modal/schema')
 const mongoClient = require('mongodb').MongoClient;
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+var validator = require("email-validator");
+const nodemailer = require('nodemailer')
 
-// const nodemailer = require('nodemailer')
-
-// let transport = nodemailer.createTransport({
-//     host: "smtp.gmail.com",
-//     port: 465,
-//     secure: true,
-//     auth: {
-//       user: 'anonymousmail591@gmail.com',
-//       pass: 'jodnbyprcfsnaehq'
-//     }
-//  });
+let transport = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'anonymousmail591@gmail.com',
+      pass: 'jodnbyprcfsnaehq'
+    }
+ });
 
 
 const emailValidator = require('../functions/EmailValidator.js')
@@ -36,7 +36,7 @@ Router.post('/', async (req,res)=>{
     var credentials = req.body
 
     console.log(credentials)
-    const {valid, reason, validators} = await emailValidator(credentials.email);
+    const valid = validator.validate(credentials.email);
     console.log(valid)
 
     if (valid){
@@ -78,12 +78,12 @@ Router.post('/', async (req,res)=>{
         }
 
 
-    //     const mailOptions = {
-    //         from: 'anonymousmail591@gmail.com', // Sender address
-    //         to: credentials.email, // List of recipients
-    //         subject: 'Verify Your Email', // Subject line
-    //         html: `<b><a href=http://localhost:3000/verifyEmail/${uid}>Welcome to My workflow. Verify Your Email to get started</a></b>`,
-    //    };
+        const mailOptions = {
+            from: 'anonymousmail591@gmail.com', // Sender address
+            to: credentials.email, // List of recipients
+            subject: 'Verify Your Email', // Subject line
+            html: `<b><a href=http://localhost:3000/verifyEmail/${uid}>Welcome to My workflow. Verify Your Email to get started</a></b>`,
+       };
 
 
         const salt = await bcrypt.genSalt();
@@ -93,13 +93,13 @@ Router.post('/', async (req,res)=>{
         .then(res.json({message:"Success User Created",status:200}))
         .catch(err=>console.log(err))
 
-    //    transport.sendMail(mailOptions, function(err, info) {
-    //     if (err) {
-    //       console.log(err)
-    //     } else {
-    //       console.log(info);
-    //     }
-    //     });
+       transport.sendMail(mailOptions, function(err, info) {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log(info);
+        }
+        });
     }
 })
 
