@@ -17,9 +17,6 @@ let transport = nodemailer.createTransport({
     }
  });
 
-
-const emailValidator = require('../functions/EmailValidator.js')
-
 const randomNumber = require('../functions/randomNumber.js')
 require('dotenv').config()
 

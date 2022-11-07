@@ -188,7 +188,7 @@ Router.get('/score/:week',auth,async(req,res)=>{
         if(currentweekdata.length<1){
             var new_week={
                 week:currentweek,
-                dates:[{date:currentdate,timepassed:0,score:0}]
+                dates:[]
             }
 
             res.json({score:0})
@@ -271,7 +271,7 @@ Router.get('/time/:week',auth,async(req,res)=>{
         if(currentweekdata.length<1){
             var new_week={
                 week:currentweek,
-                dates:[{date:currentdate,timepassed:0,score:0}]
+                dates:[]
             }
 
             res.json({time:0})
