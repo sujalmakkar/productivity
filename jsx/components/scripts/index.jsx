@@ -99,7 +99,7 @@ export default function app(){
         }
         
         blob1.mesh.material.uniforms.uTime.value = time*0.5;
-        blob1.mesh.material.uniforms.uNoiseDensity.value = (minvalue+(currentvalue*.1))*.4
+        blob1.mesh.material.uniforms.uNoiseDensity.value = (minvalue+(currentvalue*.1))*.8
         
         controls.update();
 

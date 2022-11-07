@@ -6,7 +6,7 @@ import TimerApp from './components/TimerApp/TimerApp';
 import NotesApp from './components/NotesApp/NotesApp';
 import WeeksToLive from './components/WeeksToLive/WeeksToLive';
 // import MusicApp from './components/MusicApp/MusicApp'
-import DeadLineApp from './components/DeadLineApp/DeadLineApp';
+// import DeadLineApp from './components/DeadLineApp/DeadLineApp'
 import FutureLetterApp from './components/FutureLetterApp/FutureLetterApp';
 import GoalsApp from './components/GoalsApp/GoalsApp';
 import LogoutButton from './components/LogoutButton/LogoutButton';
@@ -188,10 +188,10 @@ class App extends React.Component {
             isAnimated: true
         });
 
-        new Masonry('.dead-line-container', {
-            itemSelector: '.dead-line',
-            isAnimated: true
-        });
+        // new Masonry( '.dead-line-container', { 
+        //     itemSelector: '.dead-line',
+        //     isAnimated: true
+        // })
     }
 
     render() {
@@ -275,11 +275,6 @@ class App extends React.Component {
                         ),
                         React.createElement(
                             'li',
-                            { className: 'app-list ripple-effect', 'data-link': 'deadlines', onClick: this.handleChange, title: 'Deadlines' },
-                            React.createElement('img', { src: 'images/icons8-deadline-100.png' })
-                        ),
-                        React.createElement(
-                            'li',
                             { className: 'app-list ripple-effect', 'data-link': 'letters', onClick: this.handleChange, title: 'Letters' },
                             React.createElement('img', { src: 'images/icons8-paper-plane-100.png' })
                         ),
@@ -320,11 +315,6 @@ class App extends React.Component {
                             'div',
                             { className: 'apps-display', 'data-name': 'goals' },
                             React.createElement(GoalsApp, null)
-                        ),
-                        React.createElement(
-                            'div',
-                            { className: 'apps-display', 'data-name': 'deadlines' },
-                            React.createElement(DeadLineApp, null)
                         ),
                         React.createElement(
                             'div',

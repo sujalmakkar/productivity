@@ -1,7 +1,9 @@
 import React, { useEffect,useState } from 'react'
 export default function WeeksToLiveData(props){
 
-    const[hoverdata,sethoverdata] = useState({year:0,week:0})
+    const[hoverdata,sethoverdata] = useState({year:0,week:0,id:0})
+    const[hoverposition,sethoverposition] = useState({top:-100,left:-100})
+    const[currentweeknote,setcurrentweeknote] = useState({year:0,week:0,id:0})
     const averagelifespan = 73
     const totalweeks= averagelifespan*52
 
@@ -24,30 +26,42 @@ export default function WeeksToLiveData(props){
         weekinfocontent = e
     }
 
-    function weekinfoposition(e){
-            weekinfocontent.classList.remove('hidden')
+    function openWeekNote(e){
+        setcurrentweeknote({id:parseInt(e.target.dataset.id),week:e.target.dataset.week,year:e.target.dataset.year})
     }
 
     function showWeekInfo(e){
-        sethoverdata({year:e.target.parentNode.dataset.number,week:e.target.dataset.number})
+            weekinfocontent.classList.remove('hidden')
+            sethoverdata({year:e.target.parentNode.dataset.number||0,week:e.target.dataset.number||0,id:(e.target.parentNode.dataset.number).toString()+(e.target.dataset.number).toString()})
+            sethoverposition({top:e.target.getBoundingClientRect().top - 12,left:e.target.getBoundingClientRect().left +12})
+            
+    }
+    function saveNote(e){
+        setcurrentweeknote({id:0,week:0,year:0})
     }
     return( 
     <React.Fragment>
-    <div className='flex'>
-    <TimeLineWeeksLeftInfo weeksToLive ={props.weeksToLiveDecimal} weeksToLiveWhole={props.weeksToLive} totalweeks={totalweeks}/>
-    <div className="weeks-container padding-30" onMouseMove={weekinfoposition}>
+    <div className='flex' >
+    <TimeLineWeeksLeftInfo  weeksToLive ={props.weeksToLiveDecimal} weeksToLiveWhole={props.weeksToLive} totalweeks={totalweeks}/>
+    <div className="weeks-container padding-30">
             {Array.from(Array(averagelifespan), (e, i) => {
-                return <div className='year' key={i} data-number={i}>
-                {Array.from(Array(52), (e, i) => {
-                    return <div className="week" key={i+1} data-number={i+1} onMouseOver={showWeekInfo} ></div>
+                return <div className='year' key={i}  data-number={i}>
+                {Array.from(Array(52), (e, k) => {
+                    return (
+                        <div className="week" key={k+1} data-number={k+1} onMouseOverCapture={showWeekInfo} >
+                        </div>
+                        )
                   })}
                 </div>
             })}
-    <div className='hovered-week-info' ref={weekinfo}>
+    
+    <div className='hovered-week-info' style={{top:hoverposition.top,left:hoverposition.left}} ref={weekinfo}>
         <div className='year-info'> Year: {hoverdata.year} </div>
         <div className='week-info'> Week: {hoverdata.week} </div>
+        {/* <div className="week-content-add-button" data-year={hoverdata.year} data-week={hoverdata.week} data-id={hoverdata.id} onClick={openWeekNote}>Add Note</div> */}
     </div>
     </div>
+    {/* <WeekNote saveNote={saveNote} id={currentweeknote.id} week={currentweeknote.week} year={currentweeknote.year}/> */}
     <div className='timeline-info-container'></div>
     </div>
     </React.Fragment>
@@ -73,3 +87,26 @@ function TimeLineWeeksLeftInfo(props){
         </React.Fragment>
     )
 }
+
+
+function WeekNote(props){
+
+    function saveNote(e){
+        props.saveNote()
+    }
+
+        return(
+            <div id="weekNoteContainer" className={ props.id>0 ?'weekNoteContainer active' : 'weekNoteContainer'}>
+                <div className='week-name'>
+                Year : {props.year} / Week :{props.week}
+                </div>
+                <div className='weekNote' suppressContentEditableWarning='true' contentEditable="true" aria-multiline="true" role="textbox" >
+                    Add a Note!
+                </div>
+                <div className='saveNote' onClick={saveNote}>Save Note</div>
+
+            </div>
+        )
+    
+}
+

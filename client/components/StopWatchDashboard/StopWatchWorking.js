@@ -6,6 +6,7 @@ import today_time from '../scripts/todayTime';
 import week_time from '../scripts/weekTime';
 import set_status from '../scripts/workstatus';
 import setstatus from '../scripts/workstatus';
+const song = new Audio('./sound/3.mp3');
 
 export default function StopWatch(props) {
 
@@ -139,6 +140,7 @@ export default function StopWatch(props) {
                         console.log(stopWatchTime.timepassed);
                         addscore(scorebyminute, stopWatchTime.timepassed);
                         today_score(stopWatchTime.timepassed);
+                        song.play();
                     }
                 }, 200);
             }

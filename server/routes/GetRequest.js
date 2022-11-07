@@ -286,7 +286,7 @@ Router.get('/time/:week',auth,async(req,res)=>{
                 totaltime+=a.timepassed
             })
             var length = currentweekdata[0].dates.length
-            if(length>1){
+            if(length>0){
                 totaltime -= currentweekdata[0].dates[length-1].timepassed
             }
             res.json({time:totaltime})

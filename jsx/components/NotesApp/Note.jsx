@@ -244,8 +244,6 @@ export default function Note(props){
             <div className='note-tools-container'>
                     <div className='note-tools'>
                         <div className='note-tool'>
-                            {/* <input type="file" name="file" id="file" className="image-input" accept="image/png, image/jpg, image/jpeg , image/gif" onChange={uploadImage} /> */}
-                            {/* <label htmlFor="file" onChange={uploadImage}> */}
                             <button type="button" onClick={uploadImage}>
                             <img src="https://img.icons8.com/material-rounded/96/000000/add-image.png"/>
                             </button>

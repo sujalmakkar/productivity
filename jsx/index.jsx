@@ -6,7 +6,7 @@ import TimerApp from './components/TimerApp/TimerApp'
 import NotesApp from './components/NotesApp/NotesApp'
 import WeeksToLive from './components/WeeksToLive/WeeksToLive'
 // import MusicApp from './components/MusicApp/MusicApp'
-import DeadLineApp from './components/DeadLineApp/DeadLineApp'
+// import DeadLineApp from './components/DeadLineApp/DeadLineApp'
 import FutureLetterApp from './components/FutureLetterApp/FutureLetterApp'
 import GoalsApp from './components/GoalsApp/GoalsApp'
 import LogoutButton from './components/LogoutButton/LogoutButton'
@@ -141,10 +141,10 @@ class App extends React.Component {
             isAnimated: true
         })
 
-        new Masonry( '.dead-line-container', { 
-            itemSelector: '.dead-line',
-            isAnimated: true
-        })
+        // new Masonry( '.dead-line-container', { 
+        //     itemSelector: '.dead-line',
+        //     isAnimated: true
+        // })
     }
 
     render(){
@@ -181,9 +181,9 @@ class App extends React.Component {
                     <li className='app-list ripple-effect' data-link="notes" onClick={this.handleChange}  title="Notes">
                         <img src="images/icons8-notes-100.png"/>
                     </li>
-                    <li className='app-list ripple-effect' data-link="deadlines" onClick={this.handleChange}  title="Deadlines">
+                    {/* <li className='app-list ripple-effect' data-link="deadlines" onClick={this.handleChange}  title="Deadlines">
                     <img src="images/icons8-deadline-100.png"/>
-                    </li>
+                    </li> */}
                     <li className='app-list ripple-effect' data-link="letters" onClick={this.handleChange}  title="Letters">
                         <img src="images/icons8-paper-plane-100.png"/>
                     </li>
@@ -202,7 +202,7 @@ class App extends React.Component {
                     <div className="apps-display" data-name="todos"><TodoApp/></div>
                     <div className="apps-display" data-name="timeline" ><WeeksToLive/></div>
                     <div className="apps-display" data-name="goals"><GoalsApp/></div>
-                    <div className="apps-display" data-name="deadlines"><DeadLineApp/></div>
+                    {/* <div className="apps-display" data-name="deadlines"><DeadLineApp/></div> */}
                     <div className="apps-display" data-name="letters"><FutureLetterApp/></div>
                     <div className="apps-display" data-name="notes"><NotesApp/></div>
                     <div className="apps-display" data-name="timers"><TimerApp/></div>

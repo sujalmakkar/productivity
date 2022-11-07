@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoEditableText from './TodoEditableText';
+// import { TimePicker } from 'react-ios-time-picker';
+
 
 // Display the Todo in a 2 Todo Container one consists all the done todo and another consists of all the undone
 // Also display todo based on date
 
 export default function TodoDisplay(props) {
+
+    const [openselector, setopenselector] = useState(false);
 
     function doneStateChange(e) {
         e.target.dataset.date = props.date;
@@ -24,6 +28,12 @@ export default function TodoDisplay(props) {
         props.deleteTodo(e.target.dataset);
     }
 
+    // function showTimePicker(e){
+    //         console.log(e)
+    //         $('#todoInput').click()
+    //         console.log($('#todoInput'))
+    // }
+
     return React.createElement(
         React.Fragment,
         null,
@@ -38,14 +48,10 @@ export default function TodoDisplay(props) {
             React.createElement(
                 'ul',
                 { className: 'todos-not-done-container' },
-                React.createElement(
-                    'div',
-                    { className: 'todo-container-type' },
-                    'Undone'
-                ),
                 props.todos.reverse().map(todo => !todo.done ? React.createElement(
                     'li',
                     { className: 'todo', key: todo.id },
+                    React.createElement('input', { type: 'time', 'data-id': todo.id, id: 'todoInput' }),
                     React.createElement(
                         'span',
                         { className: 'box-shadow doneIndicator undone ripple-effect', title: 'mark as done', 'data-text': todo.text, 'data-id': todo.id, onClick: doneStateChange },
@@ -62,11 +68,6 @@ export default function TodoDisplay(props) {
             React.createElement(
                 'ul',
                 { className: 'todos-done-container' },
-                React.createElement(
-                    'div',
-                    { className: 'todo-container-type' },
-                    'Done'
-                ),
                 props.todos.reverse().map(todo => todo.done ? React.createElement(
                     'li',
                     { className: 'todo', key: todo.id },

@@ -387,7 +387,7 @@ button{
 
 
 #App-container .App-selector .app-list img,#App-container .App-selector .app-list.active img{
-    width:30px;
+    width:28px;
     pointer-events: none;
 }
 
@@ -607,6 +607,7 @@ button{
     background: #b1d3ec4f;
     color:#000;
     overflow: hidden;
+    flex-direction: column;
     position:relative;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 3px 10px 0px;
     animation:addlist .4s ease;
@@ -623,7 +624,7 @@ button{
 }
 
 #TodoApp .todos-container-date .todos-not-done-container,#TodoApp .todos-container-date .todos-done-container{
-    width:50%;
+    width:100%;
     display:flex;
     flex-direction:column;
     font-size: 18px;
@@ -671,7 +672,12 @@ button{
     background: #157e7e3a;
     padding:5px 8px 5px 8px;
     margin:4px;
+    font-size: 14px;
     cursor: pointer;
+}
+
+#TodoApp .todos-container-date .todo #todoInput{
+    display: none;
 }
 
 #TodoApp .todos-container-date .todo .doneIndicator.undone:hover{
@@ -695,7 +701,7 @@ button{
 }
 
 #TodoApp .todos-container-date .todo .deleteTodo img{
-    height:16px;
+    height:14px;
     pointer-events: none;
 }
 
@@ -703,6 +709,8 @@ button{
     inline-size: 80%;
     text-align: center;
     overflow-wrap: break-word;
+    font-size: 16px;
+
 }
 
 #TodoApp .todo-text.editable{
@@ -724,13 +732,32 @@ button{
     width:1.140vw;
     height:1.140vw;
     border:1px solid #157e7ede;
+    position: relative;
     display: inline-flex;
     margin: auto;
+    transition:all .4s ease;
+}
+
+#WeeksToLive .week:hover {
+    background:#157e7e;
+}
+#WeeksToLive .week .week-tool-kit{
+    position:absolute;
+    display: none;
+    left: 0%;
+    bottom:0%;
+    padding:10px;
+    margin:10px;
+    border-radius: 6px;
+    background: #157e7e;
+}
+#WeeksToLive .week:hover .week-tool-kit{
+    display: block;
 }
 
 #WeeksToLive .year{
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -784,7 +811,49 @@ button{
     justify-content: space-between;
     flex-direction: row;
 }
-
+#WeeksToLive .weekNoteContainer{
+    background:#cce6eb;
+    z-index:10;
+    position: fixed;
+    padding:20px;
+    font-size:16px;
+    margin:10px;
+    border-radius: 8px;
+    left:2.5%;
+    top:2.5%;
+    bottom:2.5%;
+    right: 2.5%;
+    display: none;
+    opacity: 0;
+    pointer-events:none;
+}
+#WeeksToLive .weekNoteContainer.active{
+    display: block;
+    opacity: 1;
+    pointer-events:all;
+    animation:popup .3s ease;
+}
+#WeeksToLive #weekNoteContainer .week-name{
+    /* background:; */
+    font-size: 24px;
+    font-family:montserrat;
+}
+#WeeksToLive #weekNoteContainer div{
+    padding:10px;
+    margin:10px 0px;
+}
+#WeeksToLive #weekNoteContainer .weekNote{
+    width:100%;
+    max-height: 65vh;
+    overflow:scroll;
+    margin:10px 0px;
+    background:#157e7e25;
+    border-radius: 6px;
+}
+#WeeksToLive #weekNoteContainer .weekNote div{
+    padding:0;
+    margin:5px 0px;
+}
 #WeeksToLive .flex{
     width:100%;
     display: flex;
@@ -812,13 +881,34 @@ button{
 #WeeksToLive .hovered-week-info{
     position:absolute;
     background:#f0f0f0;
-    transition: all .1s ease;
+    width:auto;
+    background:#157e7e;
+    border-radius: 8px;
+    transition: all .2s ease;
     z-index:2;
-    right:0;
-    top:50%;
+    left:-10%;
+    top:-10%;
     transform: translate(0%,-50%);
     display: block;
     position: fixed;
+}
+#WeeksToLive .hovered-week-info div{
+    color:rgba(235, 235, 235, 0.829);
+    padding:5px 10px;
+    font-size:14px;
+    font-family: poppins;
+}
+#WeeksToLive .hovered-week-info .week-content-add-button{
+    background:#f0f0f021;
+    color:rgba(235, 235, 235, 0.925);
+    margin:5px;
+    font-size:16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#WeeksToLive .hovered-week-info .week-content-add-button:hover{
+    background:#f0f0f031;
 }
 
 #WeeksToLive .weeks-container{
@@ -833,6 +923,8 @@ button{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 3px 10px 0px;
     padding:30px;
     border-radius: 10px;
+    transition: all .4s ease;
+    animation: popout .2s ease;
 
 }
 
@@ -871,7 +963,8 @@ button{
 }
 
 #GoalsApp .goal .deleteGoal img{
-    height:18px;
+    height:14px;
+
     pointer-events: none;
 }
 #GoalsApp .goal .goal-name{
@@ -991,10 +1084,10 @@ button{
     margin-left: 40px;
 }
 #NotesApp  .note .note-text-container .note-heading{
-    font-size:24px;
+    font-size:20px;
 }
 #NotesApp  .note .note-text-container .note-content{
-    font-size:18px;
+    font-size:16px;
     opacity: .9;
 }
 #NotesApp  .note .note-text-container .text-container{
@@ -1003,6 +1096,7 @@ button{
     border-radius: 6px;
     padding:10px;
 }
+
 
 #NotesApp .note-tools-container {
     display: flex;
@@ -1106,6 +1200,10 @@ button{
     border: .4px solid #157e7e50;
     transition:all .2s ease;
     animation: new .2s ease;
+}
+#NotesApp .notes-flex-container .note-container img{
+    width:100%;
+    border-radius: 8px;
 }
 @keyframes new{
     0%{
