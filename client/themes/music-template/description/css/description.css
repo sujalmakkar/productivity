@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@font-face{
+    font-family: "black-panther";
+    src: url('fonts/bold-regular.woff2') format('woff2'),
+    url('fonts/bold-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body,html{
+    background: #01101D;  /* fallback for old browsers */
+}
+#description{
+    width: 100%;
+    background: #01101D;  /* fallback for old browsers */
+    height: auto;
+
+}
+.images{
+    height: auto;
+    min-height: 100vh;
+}
+.intro{
+    font-family: black-panther;
+    text-align: center;
+    padding: 40px;
+    color: rgb(240, 240, 240);
+    font-size: 100px;
+}
+.main-tagline{
+    font-size: 30px;
+    font-weight: 200;
+}
+.description{
+    margin: 20px;
+    padding: 15px;
+    width: 70%;
+    font-size: 24px;
+    font-family: poppins;
+    color: rgb(240, 240, 240);
+    margin-bottom: 80px;
+}
+.main-images{
+    width: 70%;
+    text-align: center;
+    min-height: 90vh;
+    transform: rotate(0deg) translateY(00px); 
+}
+.main-images img{
+    width: 48%;
+    margin: auto;
+    margin: 4px;
+    border-radius: 4px;
+    height: auto;
+}
+.what-will-you-get{
+    height: 100vh;
+}
+#all-flex{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+.what-will-you-get{
+    width:70%;
+    font-family: black-panther;
+    text-align: center;
+    color: rgb(240, 240, 240);
+    font-size: 40px;
+    margin-top: 100px;
+}
+.emotions{
+    width:70%;
+    font-family: poppins;
+    text-align: center;
+    color: rgb(240, 240, 240);
+    font-size: 28px;
+}
+.motivate{
+    text-align: center;
+    font-size: 30px;
+}
+.content{
+    display: flex;
+    flex-direction:column;
+}
+.content-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+.header{
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.content-box{
+    width: 30%;
+    margin: 20px;
+    height: 30vh;
+    border-radius: 8px;
+    font-family: poppins;
+    background: #01203b;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header{
+    text-align: center;
+}
+.key-features{
+    text-align: left;
+}
+ul {
+    list-style: none;
+    font-family: poppins;
+    font-size: 22px;
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  ul li::before {
+    content: "\2022";
+    color: #01203b;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }

@@ -75,7 +75,8 @@ export default function StopWatch(props){
 
 
 
-    function start(){
+    function start(e){
+        e.preventDefault()
         setstopWatchInfo({started:true,initiated:true})
         if(timerInitialized.length > 1){''}else{
             const currentDate = new Date();
@@ -93,6 +94,7 @@ export default function StopWatch(props){
         }
     }
     function handletaskname(e){
+        
         var name = e.target.value
         setstopWatchName(name)
     }

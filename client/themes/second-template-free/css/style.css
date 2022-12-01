@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: "black-panther";
+    src: url('fonts/bold-regular.woff2') format('woff2'),
+    url('fonts/bold-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+::-webkit-scrollbar{
+    width: 8px;
+    background: #390468;
+}
+::-webkit-scrollbar-thumb{
+    width: 8px;
+
+    background: rgb(240, 240, 240);
+}
+body,html{
+    background: #390468;  /* fallback for old browsers */
+}
+.intro{
+    font-family: black-panther;
+    text-align: center;
+    padding: 40px;
+    color: rgb(240, 240, 240);
+    font-size: 100px;
+}
+.main-tagline{
+    font-size: 30px;
+    font-weight: 200;
+}
+.theme-selector{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.theme{
+    width: 40%;
+    margin: auto;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    position: relative;
+}
+.theme img{
+width: 100%;
+position: relative;
+height: auto;
+margin: 0;
+padding: 0;
+cursor: pointer;
+z-index: 1;
+}
+a{
+    color: rgb(240, 240, 240);
+    font-size: 30px;
+    font-family: black-panther;
+    text-decoration: none;
+}
+.theme img:nth-child(1){
+    opacity: 1;
+    transition: all 1s ease;
+}
+.theme img:nth-child(2){
+opacity: 0;
+    transition: all 1s ease;
+    position: absolute;
+    left: 0;
+}
+.theme:hover  img:nth-child(2){
+opacity: 1;
+}
+.theme:hover  img:nth-child(1){
+    opacity: 0;
+}
+.text{
+    padding: 10px;
+text-align: center;
+}
+.what-will-you-get{
+    width:70%;
+    font-family: black-panther;
+    text-align: center;
+    color: rgb(240, 240, 240);
+    font-size: 40px;
+}
+.key-features{
+    text-align: left;
+}
+.header{
+    text-align: center;
+}
+ul {
+    list-style: none;
+    font-family: poppins;
+    font-size: 22px;
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  ul li::before {
+    content: "\2022";
+    color: #8f0888;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+  #all-flex{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+@media all and (min-width:0px) and (max-width:590px){
+    .theme{
+        width: 100%;
+        margin: auto;
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+    .theme-selector{
+        flex-direction: column;
+    }
+}

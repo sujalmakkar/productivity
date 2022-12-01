@@ -15,6 +15,8 @@ export default function TodoEditableText(props) {
 
     function handleBlur() {
         setEditable(false);
+        var new_value = Values.element.innerText;
+        props.changeTodoText({ id: Values.id, text: new_value });
     }
 
     function handleEditDone(e) {

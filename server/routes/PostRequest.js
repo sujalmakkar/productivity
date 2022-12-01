@@ -86,6 +86,7 @@ Router.post('/todo',auth,async(req,res)=>{
             text:todo.text,
             id:parseInt(todo.id)
         }
+        console.log(newtodo)
 
         var exists = await DB.collection('productivity').findOne({uid:req.uid,alltodos:{$elemMatch:{date:todo.date}}},{projection:{'alltodos.todos.$': 1 , _id: 0}})
         var index = exists.alltodos[0].todos.findIndex(a=>a.id == todo.id)
