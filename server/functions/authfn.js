@@ -22,7 +22,6 @@ async function authfn(token) {
         console.log(verified)
         var info = verified.uid
         console.log(info)
-        console.log(DB)
         var exists =  await DB.collection('productivity').findOne({uid:info})
         if(exists!=null){
             return exists.uid
