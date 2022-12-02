@@ -14,8 +14,10 @@ var secret = process.env.SECRETJWT
 
 async function authfn(token) {
     if(token == '' || token == "null" || token == null || !token){
+            console.log(token)
             return null
     }else{
+        console.log(token)
         var verified = jwt.verify(token,secret)
         var info = verified.uid
         var exists =  await DB.collection('productivity').findOne({uid:info})
