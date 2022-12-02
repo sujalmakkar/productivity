@@ -19,7 +19,9 @@ async function authfn(token) {
     }else{
         console.log(token)
         var verified = jwt.verify(token,secret)
+        console.log(verified)
         var info = verified.uid
+        console.log(info)
         var exists =  await DB.collection('productivity').findOne({uid:info})
         if(exists!=null){
             return exists.uid
